@@ -1,0 +1,21 @@
+opam-version: "2"
+maintainer: "Boris D. <borisd@gmx.com>"
+substs: ["libffi-ios.config"]
+build: [
+  ["./configure" "--host=%{conf-ios:triplereal}%"
+                 "--prefix=%{prefix}%/ios-deps/libffi"
+                 "--disable-shared"
+                 "CPPFLAGS=%{conf-ios:cflags}%"
+                 "LDFLAGS=%{conf-ios:ldflags}%"]
+  ["make" "-j" jobs]
+]
+install: [
+  ["make" "install"]
+]
+remove:  [["rm" "-rf" "%{prefix}%/ios-deps/libffi"]]
+depends: ["conf-ios"]
+synopsis: "A portable foreign-function interface library"
+url {
+    src: "https://github.com/libffi/libffi/releases/download/v3.4.2/libffi-3.4.2.tar.gz"
+    checksum: "md5=294b921e6cf9ab0fbaea4b639f8fdbe8"
+}
