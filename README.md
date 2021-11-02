@@ -11,11 +11,11 @@ Installation
 
 Add this repository to OPAM in a 4.07.1 switch:
 
-    opam repo add ios https://github.com/dboris/opam2-cross-ios
+    opam repo add ios https://dboris.github.io/opam2-cross-ios
 
 or create a new switch with this repository included:
 
-    opam switch create --repos=ios=https://github.com/dboris/opam2-cross-ios,default ios 4.07.1
+    opam switch create --repos=ios=https://dboris.github.io/opam2-cross-ios,default ios 4.07.1
 
 Configure the compiler for 64-bit ARM:
 
