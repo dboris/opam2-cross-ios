@@ -1,7 +1,7 @@
 opam2-cross-ios
 ===============
 
-This repository provides an update to opam 2.0 of the original [opam-cross-ios](https://github.com/ocaml-cross/opam-cross-ios), and contains an iOS toolchain featuring OCaml 4.07.1, as well as some commonly used packages.
+This repository provides an update to opam 2.0 of the original [opam-cross-ios](https://github.com/ocaml-cross/opam-cross-ios), and contains an iOS toolchain featuring OCaml 4.14.0 and 4.07.1, as well as some commonly used packages.
 
 The supported build systems are macOS 10.9 and later. The supported target systems are 64-bit x86 iOS simulator and ARM iOS.
 
@@ -9,21 +9,21 @@ The supported build systems are macOS 10.9 and later. The supported target syste
 Installation
 ------------
 
-Add this repository to OPAM in a 4.07.1 switch:
+Add this repository to OPAM in a 4.14.0 switch:
 
     opam repo add ios https://dboris.github.io/opam2-cross-ios
 
 or create a new switch with this repository included:
 
-    opam switch create --repos=ios=https://dboris.github.io/opam2-cross-ios,default ios 4.07.1
+    opam switch create --repos=ios=https://dboris.github.io/opam2-cross-ios,default ios 4.14.0
 
 Configure the compiler for 64-bit ARM:
 
-    ARCH=arm64 SUBARCH=arm64 PLATFORM=iPhoneOS SDK=14.5 VER=12.0 opam install conf-ios
+    ARCH=arm64 SUBARCH=arm64 PLATFORM=iPhoneOS SDK=15.5 VER=12.0 opam install conf-ios
 
 or for 64-bit x86:
 
-    ARCH=amd64 SUBARCH=x86_64 PLATFORM=iPhoneSimulator SDK=14.5 VER=12.0 opam install conf-ios
+    ARCH=amd64 SUBARCH=x86_64 PLATFORM=iPhoneSimulator SDK=15.5 VER=12.0 opam install conf-ios
 
 Some options can be further tweaked:
 
@@ -40,7 +40,7 @@ Install the compiler:
 Usage
 -----
 
-Use `ocamlfind -toolchain ios ocamlopt` to invoke the compiler. Link `libasmrun.a` to your final executable, and link it with your iOS project (you'll need to call `caml_startup(argv)` to run OCaml code; see [the manual](https://ocaml.org/releases/4.07/htmlman/intfc.html#sec456)):
+Use `ocamlfind -toolchain ios ocamlopt` to invoke the compiler. Link `libasmrun.a` to your final executable, and link it with your iOS project (you'll need to call `caml_startup(argv)` to run OCaml code; see [the manual](https://v2.ocaml.org/manual/intfc.html#ss:c-embedded-code)):
 
 
 Porting packages
